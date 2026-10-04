@@ -1,0 +1,171 @@
+{
+  "aggregate": {
+    "faithfulness": 0.9583333333333333,
+    "answer_relevancy": 0.9068928448808131,
+    "context_precision": 0.9249999999099998,
+    "context_recall": 0.925
+  },
+  "num_questions": 20,
+  "failures": [
+    {
+      "question": "Một nhân viên Senior có 9 năm thâm niên được nghỉ bao nhiêu ngày phép năm và lương trong khoảng nào?",
+      "answer": "Dựa trên Chính sách nghỉ phép năm (Phiên bản 2024, có hiệu lực từ 01/01/2024, thay thế hoàn toàn phiên bản 1.0 năm 2023):\n\n* **Số ngày phép năm:** Mỗi nhân viên chính thức được hưởng **15 ngày phép năm** có lương. Ngoài ra, nhân viên có thâm niên từ **3 năm trở lên** được cộng thêm **1 ngày phép** cho mỗi 3 năm làm việc liên tục. Với thâm niên **9 năm**, nhân viên này được cộng thêm **3 ngày phép** (9 chia cho 3 nhân với 1 ngày), tổng cộng số ngày phép năm là **18 ngày phép** có lương (15 + 3). (Phiên bản cũ năm 2023 chỉ quy định 12 ngày phép cơ bản và thâm niên từ 5 năm mới được cộng thêm phép, nhưng đã bị thay thế).\n* **Về mức lương:** Trong 18 ngày phép năm này, nhân viên được hưởng **lương đầy đủ** (100% lương) vì đây là phép năm có lương theo quy định.",
+      "ground_truth": "Theo chính sách v2024: 15 ngày cơ bản + 3 ngày thâm niên (9÷3=3) = 18 ngày phép. Lương Senior (P3-P4): 20-35 triệu VNĐ/tháng.",
+      "avg_score": 0.5880081611719902,
+      "worst_metric": "context_precision",
+      "score": 0.0,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8520326446879606,
+        "context_precision": 0.0,
+        "context_recall": 0.5
+      },
+      "diagnosis": "Too many irrelevant chunks",
+      "suggested_fix": "Add reranking or metadata filter"
+    },
+    {
+      "question": "Có cần kích hoạt xác thực đa yếu tố (MFA) không?",
+      "answer": "Theo Chính sách mật khẩu (Phiên bản 2.0, hiệu lực từ 01/07/2024), tất cả nhân viên **bắt buộc** kích hoạt MFA cho tài khoản email, VPN và các hệ thống nội bộ.",
+      "ground_truth": "Có, theo chính sách mật khẩu v2.0 hiện hành, tất cả nhân viên bắt buộc kích hoạt MFA cho email, VPN và hệ thống nội bộ. Chính sách cũ v1.0 không yêu cầu MFA.",
+      "avg_score": 0.8195517182628272,
+      "worst_metric": "context_recall",
+      "score": 0.5,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.7782068731513089,
+        "context_precision": 0.9999999999,
+        "context_recall": 0.5
+      },
+      "diagnosis": "Missing relevant chunks",
+      "suggested_fix": "Improve chunking or add BM25"
+    },
+    {
+      "question": "Bao lâu phải đổi mật khẩu một lần?",
+      "answer": "Theo Chính sách mật khẩu phiên bản 2.0 (hiện hành, có hiệu lực từ ngày 01/07/2024), mật khẩu phải được thay đổi **mỗi 120 ngày**. \n\n*(Lưu ý: Phiên bản cũ v1.0 quy định chu kỳ thay đổi là mỗi 90 ngày nhưng đã bị thay thế).*",
+      "ground_truth": "Theo chính sách hiện hành (v2.0), mật khẩu phải được thay đổi mỗi 120 ngày. Chính sách cũ yêu cầu 90 ngày nhưng đã bị thay thế.",
+      "avg_score": 0.8403085343648421,
+      "worst_metric": "context_precision",
+      "score": 0.49999999995,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8612341375093683,
+        "context_precision": 0.49999999995,
+        "context_recall": 1.0
+      },
+      "diagnosis": "Too many irrelevant chunks",
+      "suggested_fix": "Add reranking or metadata filter"
+    },
+    {
+      "question": "Nhân viên tạm ứng 15 triệu, sau 20 ngày mới thanh toán. Bị phạt bao nhiêu?",
+      "answer": "Theo quy định tại Chính sách tạm ứng, khoản tạm ứng chưa thanh toán sau 15 ngày sẽ bị tính phí phạt **2%/tháng** trên số tiền chưa hoàn ứng. \n\nVới số tiền tạm ứng là **15.000.000 VNĐ** và thời gian quá hạn tính đến ngày thứ 20 (quá 5 ngày so với thời hạn 15 ngày), mức phí phạt cụ thể được tính theo quy định 2%/tháng trên tổng số tiền 15.000.000 VNĐ chưa hoàn ứng là:\n15.000.000 VNĐ x 2% = **300.000 VNĐ/tháng** (khoản phí này sẽ được khấu trừ vào lương tháng kế tiếp).",
+      "ground_truth": "Thời hạn thanh toán là 15 ngày. Quá hạn 5 ngày, bị tính phí 2%/tháng trên 15.000.000 VNĐ = 300.000 VNĐ/tháng (tính pro-rata khoảng 50.000 VNĐ cho 5 ngày).",
+      "avg_score": 0.8461335812302038,
+      "worst_metric": "context_recall",
+      "score": 0.5,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8845343250208149,
+        "context_precision": 0.9999999999,
+        "context_recall": 0.5
+      },
+      "diagnosis": "Missing relevant chunks",
+      "suggested_fix": "Improve chunking or add BM25"
+    },
+    {
+      "question": "Nhân viên được tài trợ khóa học 25 triệu, nghỉ việc sau 8 tháng hoàn thành khóa học. Phải hoàn trả bao nhiêu?",
+      "answer": "Căn cứ theo mục \"Cam kết hoàn chi\" trong Chính sách hoàn chi đào tạo (Phiên bản: 1.1), nhân viên được tài trợ đào tạo phải cam kết làm việc tại công ty ít nhất **1 năm** sau khi hoàn thành khóa học. Nếu nghỉ việc trước thời hạn cam kết (như trường hợp nghỉ sau 8 tháng), nhân viên phải hoàn trả **100% chi phí** đào tạo đã được tài trợ. \n\nVới khóa học trị giá 25.000.000 VNĐ, nhân viên phải hoàn trả số tiền là **25.000.000 VNĐ**.",
+      "ground_truth": "Nhân viên phải cam kết làm việc ít nhất 1 năm sau khi hoàn thành khóa học. Nghỉ sau 8 tháng là trước hạn cam kết, phải hoàn trả 100% chi phí tức 25.000.000 VNĐ.",
+      "avg_score": 0.8979745313039905,
+      "worst_metric": "faithfulness",
+      "score": 0.6666666666666666,
+      "scores": {
+        "faithfulness": 0.6666666666666666,
+        "answer_relevancy": 0.9252314586492953,
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature"
+    },
+    {
+      "question": "Nếu cần mua một chiếc laptop 30 triệu cho nhân viên mới, ai phê duyệt và cần gì từ phòng CNTT?",
+      "answer": "Theo quy định tại mục \"Thẩm quyền phê duyệt\" của Quy trình mua sắm (Phiên bản: 2.2), đơn hàng có giá trị từ **5.000.000 - 50.000.000 VNĐ** (trong đó đơn hàng laptop 30 triệu nằm ở mức này) thuộc thẩm quyền phê duyệt của **Giám đốc phòng ban (Director)**. \n\nNgoài ra, theo phần \"Lưu ý đặc biệt\", việc mua sắm thiết bị CNTT (như laptop) **cần có xác nhận của phòng CNTT về cấu hình kỹ thuật trước khi đề xuất**, không phân biệt thâm niên của nhân viên.",
+      "ground_truth": "Laptop 30 triệu nằm trong khoảng 5-50 triệu nên cần Giám đốc phòng ban (Director) phê duyệt. Ngoài ra, mua sắm thiết bị CNTT cần có xác nhận cấu hình kỹ thuật từ phòng CNTT trước khi đề xuất. Cần đính kèm ít nhất 3 báo giá vì trên 10 triệu.",
+      "avg_score": 0.91262289341035,
+      "worst_metric": "faithfulness",
+      "score": 0.75,
+      "scores": {
+        "faithfulness": 0.75,
+        "answer_relevancy": 0.9004915737413998,
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature"
+    },
+    {
+      "question": "Muốn mua thiết bị trị giá 55 triệu cần ai phê duyệt?",
+      "answer": "Dựa theo quy định về Thẩm quyền phê duyệt tại mục \"Quy trình mua sắm\" (Phiên bản: 2.2), đối với đơn hàng có giá trị trên **50.000.000 VNĐ**, người có thẩm quyền phê duyệt là **Tổng Giám đốc (CEO)**. Do đó, muốn mua thiết bị trị giá 55 triệu VNĐ thì cần Tổng Giám đốc (CEO) phê duyệt.",
+      "ground_truth": "Đơn hàng trên 50.000.000 VNĐ cần Tổng Giám đốc (CEO) phê duyệt.",
+      "avg_score": 0.9243539054311822,
+      "worst_metric": "faithfulness",
+      "score": 0.75,
+      "scores": {
+        "faithfulness": 0.75,
+        "answer_relevancy": 0.9474156218247288,
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "diagnosis": "LLM hallucinating",
+      "suggested_fix": "Tighten prompt, lower temperature"
+    },
+    {
+      "question": "Thông tin lương thuộc cấp độ phân loại dữ liệu nào?",
+      "answer": "Dựa trên Quy chế chi trả lương (Phiên bản 1.1), thông tin lương là dữ liệu **Bí mật** và cấm chia sẻ với đồng nghiệp.",
+      "ground_truth": "Theo quy chế chi trả lương, thông tin lương được phân loại là dữ liệu Bí mật, cấm chia sẻ với đồng nghiệp. Theo chính sách phân loại dữ liệu, dữ liệu Bí mật (cấp 3) phải mã hóa khi truyền và hạn chế truy cập theo need-to-know.",
+      "avg_score": 0.9354836081924778,
+      "worst_metric": "answer_relevancy",
+      "score": 0.7419344328699111,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.7419344328699111,
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "diagnosis": "Answer doesn't match question",
+      "suggested_fix": "Improve prompt template"
+    },
+    {
+      "question": "Nhân viên được nghỉ bao nhiêu ngày phép năm?",
+      "answer": "Theo chính sách nghỉ phép năm phiên bản 2024 (có hiệu lực từ 01/01/2024), mỗi nhân viên chính thức được hưởng **15 ngày phép năm** có lương. \n\nPhiên bản này đã thay thế hoàn toàn phiên bản 1.0 năm 2023 (vốn quy định 12 ngày phép năm). Ngoài ra, nhân viên có thâm niên từ **3 năm trở lên** sẽ được cộng thêm **1 ngày phép** cho mỗi 3 năm làm việc liên tục.",
+      "ground_truth": "Theo chính sách hiện hành (v2024), nhân viên được nghỉ 15 ngày phép năm có lương. Chính sách cũ (v2023) là 12 ngày nhưng đã bị thay thế.",
+      "avg_score": 0.9633906202132329,
+      "worst_metric": "answer_relevancy",
+      "score": 0.8535624809529315,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8535624809529315,
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "diagnosis": "Answer doesn't match question",
+      "suggested_fix": "Improve prompt template"
+    },
+    {
+      "question": "Lương thử việc của nhân viên Junior mức cao nhất là bao nhiêu?",
+      "answer": "Theo chính sách thử việc và bảng lương năm 2024, nhân viên trong thời gian thử việc được nhận **85% lương** của cấp bậc tương ứng. \n\nCăn cứ vào khung lương theo cấp bậc, mức lương gross cao nhất của cấp bậc Junior (P1-P2) là 20.000.000 VNĐ/tháng. Do đó, lương thử việc của nhân viên Junior mức cao nhất là:\n20.000.000 VNĐ × 85% = **17.000.000 VNĐ/tháng**.",
+      "ground_truth": "Junior cao nhất là 20.000.000 VNĐ/tháng. Lương thử việc = 85% x 20.000.000 = 17.000.000 VNĐ/tháng.",
+      "avg_score": 0.9672666425045285,
+      "worst_metric": "answer_relevancy",
+      "score": 0.8690665701181142,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8690665701181142,
+        "context_precision": 0.9999999999,
+        "context_recall": 1.0
+      },
+      "diagnosis": "Answer doesn't match question",
+      "suggested_fix": "Improve prompt template"
+    }
+  ]
+}

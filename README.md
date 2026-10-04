@@ -21,7 +21,7 @@ Xem **ASSIGNMENT.md** để biết chi tiết từng module và timeline.
 |-----------|-----------|----------|
 | Docker (Qdrant) | ✅ Có | M2 Dense Search |
 | Python 3.11+ | ✅ Có | Tất cả modules (RAGAS cần 3.11+ cho asyncio) |
-| `OPENAI_API_KEY` | ⚠️ M4+M5 | RAGAS eval (M4), Enrichment LLM (M5) |
+| `GEMINI_API_KEY` | ⚠️ M4+M5 | RAGAS eval (M4), Enrichment LLM (M5) |
 
 **Pre-download models** (tránh timeout trong lab):
 ```bash
@@ -57,7 +57,7 @@ python -m venv .venv
 ```bash
 docker compose up -d                    # Khởi động Qdrant vector database
 pip install -r requirements.txt
-cp .env.example .env                    # Tạo file .env và điền OPENAI_API_KEY
+cp .env.example .env                    # Tạo file .env và điền GEMINI_API_KEY
 python naive_baseline.py                # Khởi tạo baseline
 ```
 
@@ -65,7 +65,7 @@ python naive_baseline.py                # Khởi tạo baseline
 ```powershell
 docker compose up -d                    # Khởi động Qdrant vector database
 pip install -r requirements.txt
-Copy-Item .env.example .env             # Tạo file .env và điền OPENAI_API_KEY
+Copy-Item .env.example .env             # Tạo file .env và điền GEMINI_API_KEY
 python naive_baseline.py                # Khởi tạo baseline
 ```
 *(Nếu dùng Windows CMD: dùng `copy .env.example .env` thay cho `Copy-Item`)*

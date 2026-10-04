@@ -1,0 +1,14 @@
+{
+  "unit": "seconds",
+  "num_queries": 20,
+  "steps": {
+    "1. Chunking (M1)": 1.3703632354736328,
+    "2. Enrichment (M5)": 0.016000747680664062,
+    "3. Indexing BM25 + Dense (M2)": 99.69136118888855,
+    "4. Load reranker (M3)": 7.68947434425354,
+    "8. RAGAS evaluation (M4)": 686.066068649292,
+    "5. Hybrid search / query (M2)": 0.20797925000006218,
+    "6. Rerank / query (M3)": 9.087054210000133,
+    "7. LLM generate / query (gồm chờ rate limit)": 1.5671800399999483
+  }
+}
